@@ -8,10 +8,10 @@ Breakpoint.prototype.valueOf = function() {
 
 Breakpoint.prototype.mq = function() {
   return (
-    "@media (min-width: " +
-    this.min +
-    "px)" +
-    (this.max ? " and (max-width: " + this.max + "px)" : "")
+    "@media " +
+    (this.min ? "(min-width: " + this.min + "px)" : "") +
+    (this.min && this.max ? " and " : "") +
+    (this.max ? "(max-width: " + this.max + "px)" : "")
   );
 };
 
@@ -50,6 +50,12 @@ var breakpoints = {
   }),
   xlarge: new Breakpoint({
     min: 1920
+  }),
+  sidenav: new Breakpoint({
+    min: 600
+  }),
+  noSidenav: new Breakpoint({
+    max: 599
   })
 };
 
@@ -58,7 +64,8 @@ function findCurrent() {
   var size;
   for (size in breakpoints) {
     if (!breakpoints.hasOwnProperty(size)) continue;
-    if (breakpoints[size].min<width && width<=breakpoints[size].max) return size;
+    if (breakpoints[size].min < width && width <= breakpoints[size].max)
+      return size;
   }
   return null;
 }
