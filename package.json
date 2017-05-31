@@ -1,0 +1,29 @@
+{
+  "name": "md-media",
+  "version": "1.0.0",
+  "description": "Provides media queries and more for Material Design responsive UI breakpoints ",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest index.test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/PFM-lab/md-media.git"
+  },
+  "keywords": [
+    "material",
+    "design",
+    "responsive",
+    "ui",
+    "breakpoints"
+  ],
+  "author": "Philipp Bodewig <philipp.bodewig+dev@gmail.com>",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://gitlab.com/PFM-lab/md-media/issues"
+  },
+  "homepage": "https://gitlab.com/PFM-lab/md-media#README",
+  "devDependencies": {
+    "jest": "^20.0.4"
+  }
+}
