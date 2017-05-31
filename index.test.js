@@ -15,3 +15,8 @@ test("Size comparison via operators", function () {
   expect(mdMedia.large1 < mdMedia.medium).toBe(false);
   expect(mdMedia.large1 > mdMedia.medium).toBe(true);
 });
+
+test("Current width is returned", function() {
+  window.innerWidth=1024;
+  expect(mdMedia.current()).toEqual("medium");
+})

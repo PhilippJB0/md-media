@@ -15,7 +15,7 @@ Breakpoint.prototype.mq = function() {
   );
 };
 
-module.exports = {
+var breakpoints = {
   xsmall1: new Breakpoint({
     min: 0,
     max: 479
@@ -53,4 +53,15 @@ module.exports = {
   })
 };
 
-module.exports.current;
+function findCurrent() {
+  var width = window.innerWidth;
+  var size;
+  for (size in breakpoints) {
+    if (!breakpoints.hasOwnProperty(size)) continue;
+    if (breakpoints[size].min<width && width<=breakpoints[size].max) return size;
+  }
+  return null;
+}
+
+module.exports = breakpoints;
+module.exports.current = findCurrent;
