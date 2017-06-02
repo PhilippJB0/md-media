@@ -23,3 +23,9 @@ test("Sidenav mq is returned", function() {
   expect(mdMedia.noSidenav.mq()).toEqual("@media (max-width: 599px)");
   expect(mdMedia.sidenav.mq()).toEqual("@media (min-width: 600px)");
 });
+
+test("isTrue is evaluated", function() {
+  window.innerWidth = 1024;
+  expect(mdMedia.medium.isTrue()).toBe(true);
+  expect(mdMedia.small1.isTrue()).toBe(false);
+})

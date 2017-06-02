@@ -2,10 +2,19 @@ function Breakpoint(init) {
   Object.assign(this, init);
 }
 
+/**
+ * Returns the maximum window width for this breakpoint
+ */
 Breakpoint.prototype.valueOf = function() {
   return this.max;
 };
 
+/**
+ * Returns the media query for this breakpoint to be used in css
+ * Usage: media.xlarge.mq() // returns @media (min-width: 1920px)
+ * 
+ * @returns {String}
+ */
 Breakpoint.prototype.mq = function() {
   return (
     "@media " +
@@ -13,6 +22,17 @@ Breakpoint.prototype.mq = function() {
     (this.min && this.max ? " and " : "") +
     (this.max ? "(max-width: " + this.max + "px)" : "")
   );
+};
+
+/**
+ * Returns true iff the breakpoint is currently active
+ * Usage: media.xlarge.isTrue() // returns true if window width > 1920px
+ * 
+ * @returns {Boolean}
+ */
+Breakpoint.prototype.isTrue = function() {
+  var width = window.innerWidth;
+  return (!this.min || this.min <= width) && (!this.max || this.max > width);
 };
 
 var breakpoints = {
