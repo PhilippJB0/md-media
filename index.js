@@ -11,7 +11,7 @@ Breakpoint.prototype.valueOf = function() {
 
 /**
  * Returns the media query for this breakpoint to be used in css
- * Usage: media.xlarge.mq() // returns @media (min-width: 1920px)
+ * Usage: media.xl.mq() // returns @media (min-width: 1920px)
  * 
  * @returns {String}
  */
@@ -22,6 +22,26 @@ Breakpoint.prototype.mq = function() {
     (this.min && this.max ? " and " : "") +
     (this.max ? "(max-width: " + this.max + "px)" : "")
   );
+};
+
+/**
+ * Returns a breakpoint which contains all breakpoints greater or equal of this one
+ * Usage: media.md.gte().mq() // returns "@media (min-width: 960px)"
+ * 
+ * @returns {Boolean}
+ */
+Breakpoint.prototype.gte = function() {
+  return new Breakpoint({ min: this.min });
+};
+
+/**
+ * Returns a breakpoint which contains all breakpoints smaller or equal of this one
+ * Usage: media.md.lte().mq() // returns "@media (max-width: 1279px)"
+ * 
+ * @returns {Boolean}
+ */
+Breakpoint.prototype.lte = function() {
+  return new Breakpoint({ max: this.max });
 };
 
 /**

@@ -29,3 +29,8 @@ test("isTrue is evaluated", function() {
   expect(mdMedia.md.isTrue()).toBe(true);
   expect(mdMedia.sm.isTrue()).toBe(false);
 })
+
+test("gte and let work", function() {
+  expect(mdMedia.md.gte().mq()).toEqual("@media (min-width: 960px)");
+  expect(mdMedia.md.lte().mq()).toEqual("@media (max-width: 1279px)");
+})
