@@ -19,6 +19,11 @@ test("Current width is returned", function() {
   expect(mdMedia.current()).toEqual("md");
 });
 
+test("Null is returned if no breakpoint matches", function() {
+  window.innerWidth = -1;
+  expect(mdMedia.current()).toEqual(null);
+});
+
 test("Sidenav mq is returned", function() {
   expect(mdMedia.noSidenav.mq()).toEqual("@media (max-width: 599px)");
   expect(mdMedia.sidenav.mq()).toEqual("@media (min-width: 600px)");
@@ -28,9 +33,9 @@ test("isTrue is evaluated", function() {
   window.innerWidth = 1024;
   expect(mdMedia.md.isTrue()).toBe(true);
   expect(mdMedia.sm.isTrue()).toBe(false);
-})
+});
 
 test("gte and let work", function() {
   expect(mdMedia.md.gte().mq()).toEqual("@media (min-width: 960px)");
   expect(mdMedia.md.lte().mq()).toEqual("@media (max-width: 1279px)");
-})
+});
