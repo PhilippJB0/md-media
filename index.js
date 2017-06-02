@@ -36,39 +36,23 @@ Breakpoint.prototype.isTrue = function() {
 };
 
 var breakpoints = {
-  xsmall1: new Breakpoint({
+  xs: new Breakpoint({
     min: 0,
-    max: 479
-  }),
-  xsmall2: new Breakpoint({
-    min: 480,
     max: 599
   }),
-  small1: new Breakpoint({
+  sm: new Breakpoint({
     min: 600,
-    max: 839
-  }),
-  small2: new Breakpoint({
-    min: 840,
     max: 959
   }),
-  medium: new Breakpoint({
+  md: new Breakpoint({
     min: 960,
     max: 1279
   }),
-  large1: new Breakpoint({
+  lg: new Breakpoint({
     min: 1280,
-    max: 1439
+    max: 1920
   }),
-  large2: new Breakpoint({
-    min: 1440,
-    max: 1599
-  }),
-  large3: new Breakpoint({
-    min: 1600,
-    max: 1919
-  }),
-  xlarge: new Breakpoint({
+  xl: new Breakpoint({
     min: 1920
   }),
   sidenav: new Breakpoint({

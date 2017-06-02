@@ -1,22 +1,22 @@
 var mdMedia = require("./index.js");
 
 test("Returns media query", function() {
-  expect(mdMedia.medium.mq()).toEqual(
+  expect(mdMedia.md.mq()).toEqual(
     "@media (min-width: 960px) and (max-width: 1279px)"
   );
-  expect(mdMedia.xlarge.mq()).toEqual("@media (min-width: 1920px)");
+  expect(mdMedia.xl.mq()).toEqual("@media (min-width: 1920px)");
 });
 
 test("Size comparison via operators", function() {
-  expect(mdMedia.medium < mdMedia.large1).toBe(true);
-  expect(mdMedia.medium > mdMedia.large1).toBe(false);
-  expect(mdMedia.large1 < mdMedia.medium).toBe(false);
-  expect(mdMedia.large1 > mdMedia.medium).toBe(true);
+  expect(mdMedia.md < mdMedia.lg).toBe(true);
+  expect(mdMedia.md > mdMedia.lg).toBe(false);
+  expect(mdMedia.lg < mdMedia.md).toBe(false);
+  expect(mdMedia.lg > mdMedia.md).toBe(true);
 });
 
 test("Current width is returned", function() {
   window.innerWidth = 1024;
-  expect(mdMedia.current()).toEqual("medium");
+  expect(mdMedia.current()).toEqual("md");
 });
 
 test("Sidenav mq is returned", function() {
@@ -26,6 +26,6 @@ test("Sidenav mq is returned", function() {
 
 test("isTrue is evaluated", function() {
   window.innerWidth = 1024;
-  expect(mdMedia.medium.isTrue()).toBe(true);
-  expect(mdMedia.small1.isTrue()).toBe(false);
+  expect(mdMedia.md.isTrue()).toBe(true);
+  expect(mdMedia.sm.isTrue()).toBe(false);
 })
