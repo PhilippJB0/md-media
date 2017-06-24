@@ -1,16 +1,10 @@
 image: node:7.10.0
 
 stages:
-  - install
   - test
-
-install:
-  stage: install
-  script:
-   - npm install
-
 
 test:
   stage: test
   script:
+   - npm install
    - npm run test
