@@ -1,6 +1,6 @@
 {
   "name": "md-media",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Provides media queries and more for Material Design responsive UI breakpoints ",
   "main": "index.js",
   "scripts": {
